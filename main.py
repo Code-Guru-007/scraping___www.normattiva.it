@@ -1,8 +1,8 @@
 
-import download
+import scrape
 import upload
 
 if __name__ == "__main__":
     # scrape.ScrapeList()
-    download.DownloadPdf()
+    scrape.ScrapeList()
     upload.UploadPdf()
