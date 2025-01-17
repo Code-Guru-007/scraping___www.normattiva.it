@@ -8,7 +8,14 @@ def UploadPdf():
     PASSWORD = "aoewiuyrfpqiu34jf209i3f4"
     download_dir = f'{os.getcwd()}\\download'
     session = FTP(SERVER, USERNAME, PASSWORD)
-    files = FTP.nlst(session)  # List the files in the current directory
+    directories = FTP.nlst(session) 
+    if "ftp" in directories:
+        FTP.cwd(session, '/ftp')
+        files = FTP.nlst(session)
+    else:
+        FTP.mkd(session, 'ftp')
+        FTP.cwd(session, '/ftp')
+        files = FTP.nlst(session)
 
     for f in os.listdir(download_dir):
         print(f)
@@ -22,3 +29,5 @@ def UploadPdf():
             except:
                 print(f"Error occur!   :   {f}")
     session.quit()
+    
+UploadPdf()

@@ -1,12 +1,12 @@
-from seleniumbase import Driver
-from selenium.webdriver.common.action_chains import ActionChains
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from urllib.parse import urlparse, parse_qs
-import pyautogui
 import time
 import os
 import re
+from selenium.webdriver.chrome.options import Options
+
 
 
 
@@ -14,8 +14,18 @@ def ScrapeList(start = 2010, end = 2010):
     baseUrl = "https://www.normattiva.it/ricerca/elencoPerData"
     data = []
     download_dir = f'{os.getcwd()}\\download'
-    driver = Driver(uc=True)
-    pdf_files = [file for file in os.listdir(download_dir) if file.endswith('.pdf')]
+    
+    chrome_options = Options()
+    chrome_options.add_experimental_option('prefs',  {
+        "download.default_directory": download_dir,
+        "download.prompt_for_download": False,
+        "download.directory_upgrade": True,
+        "plugins.always_open_pdf_externally": True
+        }
+    )
+
+    driver = webdriver.Chrome(options = chrome_options)
+    
     for year in range(start, end + 1, 1):
         print("Current Year :    ", year)
         try:
@@ -28,35 +38,27 @@ def ScrapeList(start = 2010, end = 2010):
                     for i in range(len(card)):
                         try:           
                             href = card[i].find_element(By.CSS_SELECTOR, 'p > a').get_attribute("href")    
+                            content = card[i].find_element(By.CSS_SELECTOR, 'p > a').get_attribute("innerHTML")
+                            match = re.search(r'n\.\s*(\d+)', content)
+                            if match:
+                                number = match.group(1)  # Extract the matched number
+                                print(number)
                             parsed_url = urlparse(href)
                             query_params = parse_qs(parsed_url.query)
                             date = query_params.get('atto.dataPubblicazioneGazzetta', [None])[0]
                             code = query_params.get('atto.codiceRedazionale', [None])[0]
                             # check if current file has been downloaded
                             download_dir = f'{os.getcwd()}\\download'
-                            match = any(file.startswith(f'{date}_{code}') for file in pdf_files)
+                            pdf_files = [file for file in os.listdir(download_dir) if file.endswith('.pdf')]
+                            match = any(file.startswith(f'{number}_{year}') for file in pdf_files)
                             if match:
-                                print(date)
+                                print(f'{number}_{year}')
                                 continue
                             
                             card[i].find_element(By.CSS_SELECTOR, 'p > a').click()
                             driver.get(f'https://www.normattiva.it/atto/vediMenuExport?atto.dataPubblicazioneGazzetta={date}&atto.codiceRedazionale={code}&currentSearch=')
                             pdf_button = driver.find_element(By.NAME, 'downloadPdf')
                             pdf_button.click()
-                            time.sleep(3)
-                            driver.switch_to.window(driver.window_handles[1])
-                            element = driver.find_element(By.TAG_NAME, 'body')
-                            action = ActionChains(driver)
-                            action.move_to_element(element).click().perform()
-                            
-                            pyautogui.hotkey('ctrl', 's')
-                            time.sleep(1)
-                            pyautogui.write(f'{download_dir}\\{date}_{code}.pdf')
-                            time.sleep(1)
-                            pyautogui.hotkey('enter')
-                            time.sleep(1)
-
-                            driver.close()
                             driver.switch_to.window(driver.window_handles[0])
                             driver.back()
                             driver.back()
@@ -73,4 +75,4 @@ def ScrapeList(start = 2010, end = 2010):
 
     driver.close()    
 
-# ScrapeList()
+ScrapeList()
