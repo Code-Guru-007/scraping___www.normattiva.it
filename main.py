@@ -1,11 +1,16 @@
 
 import updated_scrape
-import upload
+# import upload
 import time
+import sys
+
 
 if __name__ == "__main__":
+    start = input("Start year: ")
+    end = input("End year: ")
+    
     # while True:
-    updated_scrape.ScrapeList(2010, 2025)
-    upload.UploadPdf()
+    updated_scrape.ScrapeList(int(start), int(end))
+    # upload.UploadPdf()
         # time.sleep(10)
         

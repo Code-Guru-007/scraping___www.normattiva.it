@@ -8,16 +8,18 @@ def UploadPdf():
     PASSWORD = "aoewiuyrfpqiu34jf209i3f4"
     download_dir = f'{os.getcwd()}\\download'
     session = FTP(SERVER, USERNAME, PASSWORD)
-    directories = FTP.nlst(session) 
-    if "ftp" in directories:
-        FTP.cwd(session, '/ftp')
-        files = FTP.nlst(session)
-    else:
-        FTP.mkd(session, 'ftp')
-        FTP.cwd(session, '/ftp')
-        files = FTP.nlst(session)
 
     for f in os.listdir(download_dir):
+        FTP.cwd(session, '/')
+        directories = FTP.nlst(session) 
+        year = f.split(".")[0].split("_")[1]
+        if year in directories:
+            FTP.cwd(session, f'/{year}')
+            files = FTP.nlst(session)
+        else:
+            FTP.mkd(session, year)
+            FTP.cwd(session, f'/{year}')
+        files = FTP.nlst(session)
         print(f)
         if f in files:
             print(f"{f} exists on the server.")
