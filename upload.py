@@ -12,7 +12,7 @@ def UploadPdf():
     for f in os.listdir(download_dir):
         FTP.cwd(session, '/')
         directories = FTP.nlst(session) 
-        year = f.split(".")[0].split("_")[1]
+        year = f.split(".")[0].split("_")[-1]
         if year in directories:
             FTP.cwd(session, f'/{year}')
             files = FTP.nlst(session)
