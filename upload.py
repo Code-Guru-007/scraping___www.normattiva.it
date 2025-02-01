@@ -2,11 +2,11 @@ from ftplib import FTP
 import os
 
 
-def UploadPdf():
+def UploadPdf(year):
     SERVER = "109.205.183.137"
     USERNAME = "normative@db-legale.professionista-ai.com"
     PASSWORD = "aoewiuyrfpqiu34jf209i3f4"
-    download_dir = f'{os.getcwd()}\\download'
+    download_dir = f'{os.getcwd()}\\download\\{year}'
     session = FTP(SERVER, USERNAME, PASSWORD)
 
     for f in os.listdir(download_dir):
@@ -31,5 +31,3 @@ def UploadPdf():
             except:
                 print(f"Error occur!   :   {f}")
     session.quit()
-    
-UploadPdf()

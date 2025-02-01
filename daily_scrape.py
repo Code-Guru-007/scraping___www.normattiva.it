@@ -8,6 +8,7 @@ import re
 from selenium.webdriver.chrome.options import Options
 from ftplib import FTP
 import datetime
+import upload
 
 SERVER = "109.205.183.137"
 USERNAME = "normative@db-legale.professionista-ai.com"
@@ -159,15 +160,3 @@ def rename_file(directory, original_name1, original_name2, new_name):
             'new_name': new_name
             })
         print("No file found to rename.")    
-        
-        
-if __name__ == "__main__":
-    base_dir = "download"
-    year = datetime.datetime.now().year - 1
-    directory_path = os.path.join(base_dir, str(year))
-    if not os.path.exists(directory_path):
-        os.makedirs(directory_path)
-        print(f"Directory '{directory_path}' created.")
-    else:
-        print(f"Directory '{directory_path}' already exists.")
-    ScrapeList(year)
