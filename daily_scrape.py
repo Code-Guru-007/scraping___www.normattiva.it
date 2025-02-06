@@ -9,21 +9,21 @@ from selenium.webdriver.chrome.options import Options
 from ftplib import FTP
 import datetime
 import upload
+import requests
 
 SERVER = "109.205.183.137"
 USERNAME = "normative@db-legale.professionista-ai.com"
 PASSWORD = "aoewiuyrfpqiu34jf209i3f4"
 session = FTP(SERVER, USERNAME, PASSWORD)
 
-error_list = []
+server_url = "http://188.245.216.211"
 
 
 def ScrapeList(year):
-    print("Current Year :    ", year)
     baseUrl = "https://www.normattiva.it/ricerca/elencoPerData"
-    download_dir = f'{os.getcwd()}\\download\\{year}'
-    
+    download_dir = f'{os.getcwd()}/download/{year}'
     chrome_options = Options()
+    chrome_options.add_argument("--headless")
     chrome_options.add_experimental_option('prefs',  {
         "download.default_directory": download_dir,
         "download.prompt_for_download": False,
@@ -35,6 +35,7 @@ def ScrapeList(year):
     driver = webdriver.Chrome(options = chrome_options)
     try:
         driver.get(f'{baseUrl}/anno/{year}')
+        print("Current Year :    ", year)
         current_page = 0
         driver.get(f'{baseUrl}/{current_page}')
         card = driver.find_elements(By.XPATH, "//div[starts-with(@id, 'heading_')]")
@@ -66,7 +67,7 @@ def ScrapeList(year):
                             new_name = f"{filename}.pdf"
                             old_path1 = f'{output['number']}_{year} (1).pdf'
                             old_path2 = f'{output['number']}_{year}.pdf'
-                            rename_file(download_dir, old_path1, old_path2, new_name)
+                            rename_file(download_dir, old_path1, old_path2, new_name, year)
                             upload_file(download_dir, new_name)
                         except:
                             print("----------------")
@@ -83,11 +84,6 @@ def ScrapeList(year):
                 card = driver.find_elements(By.XPATH, "//div[starts-with(@id, 'heading_')]")
             except:
                 pass
-        global error_list
-        print(error_list)
-        for item in error_list:
-            rename_file(item['directory'], item['original_name1'], item['original_name2'], item['new_name'])
-            upload_file(item['directory'], item['new_name'])
     except:
         pass
     driver.close()    
@@ -109,7 +105,7 @@ def upload_file(download_dir, filename):
         print(f"{filename} exists on the server.")
     else:
         try:
-            file = open(f'{download_dir}\\{filename}', 'rb')
+            file = open(f'{download_dir}/{filename}', 'rb')
             session.storbinary(f'STOR {filename}', file)     # send the file
             file.close()                                    # close file and FTP
         except:
@@ -140,7 +136,7 @@ def extract_filename(text):
                 'number': number
             }
             
-def rename_file(directory, original_name1, original_name2, new_name):
+def rename_file(directory, original_name1, original_name2, new_name, year):
     file1 = os.path.join(directory, original_name1)
     file2 = os.path.join(directory, original_name2)
     new_file_path = os.path.join(directory, new_name)
@@ -148,15 +144,26 @@ def rename_file(directory, original_name1, original_name2, new_name):
     if os.path.exists(file1):
         os.rename(file1, new_file_path)
         print(f"Renamed: {original_name1} → {new_name}")
+        requests.post(f"{server_url}:8000/api/normattiva", json={
+            "dateTime": datetime.datetime.now(),
+            "fileName": new_name,
+            "fileLink": f'{server_url}/public/download/{year}/{new_name}',
+            "status": True
+        })
     elif os.path.exists(file2):
         os.rename(file2, new_file_path)
         print(f"Renamed: {original_name2} → {new_name}")
+        requests.post(f"{server_url}:8000/api/normattiva", json={
+            "dateTime": datetime.datetime.now(),
+            "fileName": new_name,
+            "fileLink": f'{server_url}/public/download/{year}/{new_name}',
+            "status": True
+        })
     else:
-        global error_list
-        error_list.append({
-            'directory': directory,
-            'original_name1' : original_name1,
-            'original_name2' : original_name2,
-            'new_name': new_name
-            })
-        print("No file found to rename.")    
+        print("No file found to rename.") 
+        requests.post(f"{server_url}:8000/api/normattiva", json={
+            "dateTime": datetime.datetime.now(),
+            "fileName": new_name,
+            "fileLink": '',
+            "status": False
+        })   

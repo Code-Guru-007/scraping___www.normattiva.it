@@ -6,7 +6,7 @@ def UploadPdf(year):
     SERVER = "109.205.183.137"
     USERNAME = "normative@db-legale.professionista-ai.com"
     PASSWORD = "aoewiuyrfpqiu34jf209i3f4"
-    download_dir = f'{os.getcwd()}\\download\\{year}'
+    download_dir = f'{os.getcwd()}/download/{year}'
     session = FTP(SERVER, USERNAME, PASSWORD)
 
     for f in os.listdir(download_dir):
@@ -25,7 +25,7 @@ def UploadPdf(year):
             print(f"{f} exists on the server.")
         else:
             try:
-                file = open(f'{download_dir}\\{f}', 'rb')
+                file = open(f'{download_dir}/{f}', 'rb')
                 session.storbinary(f'STOR {f}', file)     # send the file
                 file.close()                                    # close file and FTP
             except:
