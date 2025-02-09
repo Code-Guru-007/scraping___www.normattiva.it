@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.service import Service
 from urllib.parse import urlparse, parse_qs
 import time
 import os
@@ -11,19 +12,25 @@ import datetime
 import upload
 import requests
 
-SERVER = "109.205.183.137"
+FTP_SERVER = "109.205.183.137"
 USERNAME = "normative@db-legale.professionista-ai.com"
 PASSWORD = "aoewiuyrfpqiu34jf209i3f4"
-session = FTP(SERVER, USERNAME, PASSWORD)
+session = FTP(FTP_SERVER, USERNAME, PASSWORD)
 
 server_url = "http://188.245.216.211"
 
 
 def ScrapeList(year):
     baseUrl = "https://www.normattiva.it/ricerca/elencoPerData"
-    download_dir = f'{os.getcwd()}/download/{year}'
+
+    download_dir = f'{os.getcwd()}\\download\\{year}'
+    print(">>>>>>>>>>>>>>>>>>    ", download_dir)
     chrome_options = Options()
-    chrome_options.add_argument("--headless")
+    # chrome_options.add_argument("--headless")
+    # chrome_options.add_argument("--no-sandbox")
+    # chrome_options.add_argument("--disable-dev-shm-usage")
+    # chrome_options.add_argument("--remote-debugging-port=9222")  # Debugging port
+    # chrome_options.add_argument("--user-data-dir=/tmp/chrome_profile")
     chrome_options.add_experimental_option('prefs',  {
         "download.default_directory": download_dir,
         "download.prompt_for_download": False,
@@ -31,6 +38,7 @@ def ScrapeList(year):
         "plugins.always_open_pdf_externally": True
         }
     )
+    # service = Service("/usr/bin/chromedriver")
 
     driver = webdriver.Chrome(options = chrome_options)
     try:
@@ -68,7 +76,8 @@ def ScrapeList(year):
                             old_path1 = f'{output['number']}_{year} (1).pdf'
                             old_path2 = f'{output['number']}_{year}.pdf'
                             rename_file(download_dir, old_path1, old_path2, new_name, year)
-                            upload_file(download_dir, new_name)
+                            # upload_file(download_dir, new_name)
+                            time.sleep(1)
                         except:
                             print("----------------")
                             pass
@@ -93,12 +102,12 @@ def upload_file(download_dir, filename):
     FTP.cwd(session, '/')
     directories = FTP.nlst(session) 
     year = filename.split(".")[0].split("_")[-1]
-    if f'test-{year}' in directories:
-        FTP.cwd(session, f'/test-{year}')
+    if year in directories:
+        FTP.cwd(session, f'/{year}')
         files = FTP.nlst(session)
     else:
-        FTP.mkd(session, f'test-{year}')
-        FTP.cwd(session, f'/test-{year}')
+        FTP.mkd(session, f'{year}')
+        FTP.cwd(session, f'/{year}')
     files = FTP.nlst(session)
     print(filename)
     if filename in files:
@@ -143,6 +152,7 @@ def rename_file(directory, original_name1, original_name2, new_name, year):
 
     if os.path.exists(file1):
         os.rename(file1, new_file_path)
+        time.sleep(1)
         print(f"Renamed: {original_name1} → {new_name}")
         requests.post(f"{server_url}:8000/api/normattiva", json={
             "dateTime": datetime.datetime.now(),
@@ -152,6 +162,7 @@ def rename_file(directory, original_name1, original_name2, new_name, year):
         })
     elif os.path.exists(file2):
         os.rename(file2, new_file_path)
+        time.sleep(1)
         print(f"Renamed: {original_name2} → {new_name}")
         requests.post(f"{server_url}:8000/api/normattiva", json={
             "dateTime": datetime.datetime.now(),
@@ -160,10 +171,10 @@ def rename_file(directory, original_name1, original_name2, new_name, year):
             "status": True
         })
     else:
-        print("No file found to rename.") 
+        print("No file found to rename.")    
         requests.post(f"{server_url}:8000/api/normattiva", json={
             "dateTime": datetime.datetime.now(),
             "fileName": new_name,
             "fileLink": '',
             "status": False
-        })   
+        })  
