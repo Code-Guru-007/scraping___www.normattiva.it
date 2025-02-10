@@ -1,37 +1,60 @@
+import os
+import time
 import requests
 import urllib.parse
-import os
+from fake_useragent import UserAgent
 
-# Unescape the URL
+# Load proxies from proxy.txt
+def load_proxies(file_path="proxy.txt"):
+    with open(file_path, "r") as file:
+        proxies = [{"http": line.strip(), "https": line.strip()} for line in file.readlines()]
+    return proxies
 
+# Download PDFs using rotating proxies
 def download_pdf(year):
-    download_dir = f'{os.getcwd()}\\download\\www.italgiure.giustizia.it\\{year}'
-    with open("pdf_url.txt", "r") as file:
-        pdf_urls = [f'https://www.italgiure.giustizia.it{line.strip()}' for line in file.readlines()]  # Remove whitespace/newlines
+    download_dir = os.path.join(os.getcwd(), "download", str(year))
+    os.makedirs(download_dir, exist_ok=True)
 
-        
-    # escaped_url = "https://www.italgiure.giustizia.it/xway/application/nif/clean/hc.dll%3Fverbo%3Dattach%26db%3Dsnpen%26id%3D./20250206/snpen@s70@a2025@n04987@tO.clean.pdf"
+    # Load URLs from file
+    with open(f"{year}.txt", "r") as file:
+        pdf_urls = [f'https://www.italgiure.giustizia.it{line.strip()}' for line in file.readlines()]
 
-    # Send GET request
-    for escaped_url in pdf_urls:
-        url = urllib.parse.unquote(escaped_url)  # Unescape the URL
-        filename = url.split("./")[1].replace("/", "_")
-        response = requests.get(url, stream=True)
-        
-        pdf_files = [file for file in os.listdir(download_dir) if file.endswith('.pdf')]
+    proxies_list = load_proxies()  # Load proxies
+    total_count = len(pdf_urls)
 
-        match = any(file.startswith(filename) for file in pdf_files)
-        if match:
-            print("Already Downloaded :  ", filename)
-            continue
+    for i, escaped_url in enumerate(pdf_urls):
+        proxy = proxies_list[i % len(proxies_list)]  # Rotate proxies
+        headers = {"User-Agent": UserAgent().random}
+        url = urllib.parse.unquote(escaped_url)
 
-        # Check if the request was successful
-        if response.status_code == 200:
-            with open(f'{download_dir}\\{filename}', "wb") as file:
-                for chunk in response.iter_content(chunk_size=1024):
-                    file.write(chunk)
-                with open(f'{download_dir}\\downloaded_file.txt', "a") as f:
-                    f.write(f"{filename}\n")
-            print(f"Download complete: {filename}")
-        else:
-            print("Failed to download. Status Code:", response.status_code)
+        try:
+            response = requests.get(url, headers=headers, stream=True, proxies=proxy, verify=False, timeout=10)
+
+            if response.status_code == 200:
+                filename = url.split("./")[1].replace("/", "_")
+                pdf_dir = os.path.join(download_dir, filename.split("_")[0])
+                os.makedirs(pdf_dir, exist_ok=True)
+
+                with open(os.path.join(pdf_dir, filename), "wb") as file:
+                    for chunk in response.iter_content(chunk_size=1024):
+                        file.write(chunk)
+
+                print(f"[{i+1}/{total_count}] Downloaded: {filename}")
+            else:
+                print(f"[{i+1}/{total_count}] Failed to download ({response.status_code}): {url}")
+
+        except requests.exceptions.RequestException as e:
+            print(f"[{i+1}/{total_count}] Error: {e}")
+
+        time.sleep(3)  # Avoid being blocked
+
+
+    
+    # if os.path.exists(f"{download_dir}\\download_url.txt"):
+    #     os.remove(f"{download_dir}\\download_url.txt")
+    #     print("File deleted successfully.")
+    # else:
+    #     print("File not found.")
+
+
+download_pdf(2025)

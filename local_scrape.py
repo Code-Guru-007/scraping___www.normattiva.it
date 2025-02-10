@@ -1,22 +1,13 @@
 import os
 import time
+import sys
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Year Mapping
-anno = {
-    '2025': 1,
-    '2024': 2,
-    '2023': 3,
-    '2022': 4,
-    '2021': 5,
-    '2020': 6,
-}
-
-
+import download_pdf
 
 
 def get_scrape_list(year):
@@ -31,9 +22,9 @@ def get_scrape_list(year):
             pdf_urls = [line.strip() for line in file.readlines()]
         
     chrome_options = Options()
+    chrome_options.add_argument("--headless")
 
     driver = webdriver.Chrome(options=chrome_options)
-    chrome_options.add_argument("--headless")
     wait = WebDriverWait(driver, 10)
 
     try:
@@ -41,7 +32,7 @@ def get_scrape_list(year):
         time.sleep(2)
 
         # Select the year
-        year_element = driver.find_element(By.ID, f"{anno.get(str(year))}.[anno]")
+        year_element = driver.find_element(By.ID, "1.[anno]")
         year_element.click()
         time.sleep(2)
 
@@ -54,20 +45,19 @@ def get_scrape_list(year):
 
             for pdf_element in pdf_elements:
                 try:
-                    # Scroll into view
-                    # driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", pdf_element)
-                    # time.sleep(0.5)
-
                     # Extract PDF URL
                     url = pdf_element.find_element(By.CSS_SELECTOR, ".toDocument.pdf").get_attribute("data-arg")
                     if url in pdf_urls:
-                        print(f"Already added: {url}")
-                        continue
+                        print("Already Updated")
+                        download_pdf.download_pdf(year)
+                        sys.exit()
                     count += 1
                     print(f"{count} >> {url}")
 
                     # Save to file
                     with open(f"{download_dir}\\pdf_url.txt", 'a') as f:
+                        f.write(url + "\n")
+                    with open(f"{download_dir}\\download_url.txt", 'a') as f:
                         f.write(url + "\n")
 
                 except Exception as e:

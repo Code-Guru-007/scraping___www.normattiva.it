@@ -8,3 +8,6 @@ __pycache__
 download_result
 *.txt
 *.json
+*.spec
+test.*
+*.pdf
