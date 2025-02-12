@@ -50,7 +50,7 @@ def get_scrape_list(year):
                     url = pdf_element.find_element(By.CSS_SELECTOR, ".toDocument.pdf").get_attribute("data-arg")
                     if url in pdf_urls:
                         print("Already Updated")
-                        download_pdf.download_pdf(year)
+                        download_pdf.download_pdf(year, 'download_url.txt')
                         upload_local.upload_pdf(year)
                         sys.exit()
                     count += 1
@@ -59,7 +59,7 @@ def get_scrape_list(year):
                     # Save to file
                     # with open(f"{download_dir}\\pdf_url.txt", 'a') as f:
                     #     f.write(url + "\n")
-                    with open(f"{download_dir}\\download_url.txt", 'a') as f:
+                    with open(os.path.join(download_dir, "download_url.txt"), 'a') as f:
                         f.write(url + "\n")
 
                 except Exception as e:
