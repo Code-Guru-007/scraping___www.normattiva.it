@@ -1,60 +1,70 @@
 import os
-import time
-import requests
 import urllib.parse
+import requests
+import ssl
+import time
 from fake_useragent import UserAgent
 
-# Load proxies from proxy.txt
 def load_proxies(file_path="proxy.txt"):
+    """Load proxies from file."""
     with open(file_path, "r") as file:
-        proxies = [{"http": line.strip(), "https": line.strip()} for line in file.readlines()]
-    return proxies
+        return [line.strip() for line in file.readlines()]
 
-# Download PDFs using rotating proxies
-def download_pdf(year):
-    download_dir = os.path.join(os.getcwd(), "download", str(year))
+def download_pdf(year, url_source):
+    """Download PDFs while handling CAPTCHAs and logging failed URLs."""
+    context = ssl._create_unverified_context()
+    download_dir = os.path.join(os.getcwd(), 'download', 'normattiva_local', year)
     os.makedirs(download_dir, exist_ok=True)
 
-    # Load URLs from file
-    with open(f"{year}.txt", "r") as file:
-        pdf_urls = [f'https://www.italgiure.giustizia.it{line.strip()}' for line in file.readlines()]
-
-    proxies_list = load_proxies()  # Load proxies
+    # Load URLs
+    with open(os.path.join(download_dir, url_source), "r") as file:
+        pdf_urls = [f'{line.strip()}' for line in file.readlines()]
+    
+    proxies_list = load_proxies()
     total_count = len(pdf_urls)
+    session = requests.Session()
+    ua = UserAgent()
 
     for i, escaped_url in enumerate(pdf_urls):
-        proxy = proxies_list[i % len(proxies_list)]  # Rotate proxies
-        headers = {"User-Agent": UserAgent().random}
-        url = urllib.parse.unquote(escaped_url)
+        proxy = {"http": f"http://{proxies_list[i % len(proxies_list)]}", "https": f"http://{proxies_list[i % len(proxies_list)]}"}  # Rotate proxies
+        url = urllib.parse.unquote(f'https://www.italgiure.giustizia.it{escaped_url}')
+        headers = {"User-Agent": ua.random, "Accept-Language": "en-US,en;q=0.9"}
 
         try:
-            response = requests.get(url, headers=headers, stream=True, proxies=proxy, verify=False, timeout=10)
+            filename = url.split("./")[1].replace("/", "_")
+            pdf_dir = os.path.join(download_dir, filename.split("_")[0])
+            os.makedirs(pdf_dir, exist_ok=True)
+            
+            file_path = os.path.join(pdf_dir, filename)
+            if os.path.exists(file_path):
+                print(f"[{i+1}/{total_count} Skipping existing file: {filename}")
+                continue
+            
+            response = session.get(url, headers=headers, proxies=proxy, timeout=10, verify=False)
+            time.sleep(3)  # Prevent rapid requests
+            content = response.content
 
-            if response.status_code == 200:
-                filename = url.split("./")[1].replace("/", "_")
-                pdf_dir = os.path.join(download_dir, filename.split("_")[0])
-                os.makedirs(pdf_dir, exist_ok=True)
-
-                with open(os.path.join(pdf_dir, filename), "wb") as file:
-                    for chunk in response.iter_content(chunk_size=1024):
-                        file.write(chunk)
-
-                print(f"[{i+1}/{total_count}] Downloaded: {filename}")
-            else:
-                print(f"[{i+1}/{total_count}] Failed to download ({response.status_code}): {url}")
-
-        except requests.exceptions.RequestException as e:
-            print(f"[{i+1}/{total_count}] Error: {e}")
-
-        time.sleep(3)  # Avoid being blocked
-
-
+            if b'captcha' in content.lower():
+                print(f"[{i+1}/{total_count}] CAPTCHA detected. Logging failed URL: {url}")
+                with open("failed.txt", "a") as f:
+                    f.write(url + "\n")
+                time.sleep(60)
+                continue
+            
+            with open(os.path.join(pdf_dir, filename), "wb") as file:
+                file.write(content)
+            
+            with open(os.path.join(download_dir, "pdf_url.txt")) as file:
+                file.write(escaped_url + '\n')
+            print(f"[{i+1}/{total_count}] Downloaded: {filename}")
+        
+        except Exception as e:
+            print(f"[{i+1}/{total_count}] Failed to download {url}: {e}")
+            with open("failed.txt", "a") as f:
+                f.write(url + "\n")
     
-    # if os.path.exists(f"{download_dir}\\download_url.txt"):
-    #     os.remove(f"{download_dir}\\download_url.txt")
-    #     print("File deleted successfully.")
-    # else:
-    #     print("File not found.")
+    download_pdf(year, "failed.txt")
+        
 
-
-download_pdf(2025)
+if __name__ == "__main__":
+    download_pdf()

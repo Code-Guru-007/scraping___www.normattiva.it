@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 import download_pdf
+import upload_local
 
 
 def get_scrape_list(year):
@@ -50,13 +51,14 @@ def get_scrape_list(year):
                     if url in pdf_urls:
                         print("Already Updated")
                         download_pdf.download_pdf(year)
+                        upload_local.upload_pdf(year)
                         sys.exit()
                     count += 1
                     print(f"{count} >> {url}")
 
                     # Save to file
-                    with open(f"{download_dir}\\pdf_url.txt", 'a') as f:
-                        f.write(url + "\n")
+                    # with open(f"{download_dir}\\pdf_url.txt", 'a') as f:
+                    #     f.write(url + "\n")
                     with open(f"{download_dir}\\download_url.txt", 'a') as f:
                         f.write(url + "\n")
 
