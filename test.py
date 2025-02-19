@@ -1,30 +1,37 @@
-import sys
-import urllib.request
-import ssl
-import urllib.parse
+from ftplib import FTP
+import re
 
-encoded_url = "https://www.italgiure.giustizia.it/xway/application/nif/clean/hc.dll%3Fverbo%3Dattach%26db%3Dsnpen%26id%3D./20250206/snpen@s70@a2025@n04976@tO.clean.pdf"
-decoded_url = urllib.parse.unquote(encoded_url)
+# FTP Credentials
+FTP_HOST = "109.205.183.137"
+FTP_USER = "legal_doc@db-legale.professionista-ai.com"
+FTP_PASS = "G}SsFa@dB@&3"
 
-# print("Decoded URL:", decoded_url)
+# Connect to FTP server
+ftp = FTP(FTP_HOST)
+ftp.login(FTP_USER, FTP_PASS)
 
+# Change to the target directory (if necessary)
+ftp.cwd('/sentenze_cassazione/downloaded/2025')  # Modify as needed
 
-# Create an unverified SSL context (disables SSL verification)
-context = ssl._create_unverified_context()
+# List all directories
+directories = ftp.nlst()  # Fetch all directory names
 
-if sys.version_info[0] == 3:
-    # Create an opener with a proxy
-    opener = urllib.request.build_opener(
-        urllib.request.ProxyHandler({
-            'http': 'http://brd-customer-hl_79944553-zone-residential_proxy1:b53is0s89h7v@brd.superproxy.io:33335',
-            'https': 'http://brd-customer-hl_79944553-zone-residential_proxy1:b53is0s89h7v@brd.superproxy.io:33335'
-        })
-    )
+# Regular expression to match directories in YYYYMMDD format
+pattern = re.compile(r"^(\d{4})(\d{2})(\d{2})$")
 
-    # Install opener as the default opener
-    urllib.request.install_opener(opener)
+for dirname in directories:
+    match = pattern.match(dirname)
+    if match:
+        # Extract YYYY, MM, DD
+        yyyy, mm, dd = match.groups()
+        new_name = f"{yyyy}-{mm}-{dd}"  # Format as YYYY-MM-DD
 
-    # Open the URL using urlopen with SSL context
-    response = urllib.request.urlopen(decoded_url, context=context)
+        # Rename the directory
+        try:
+            ftp.rename(dirname, new_name)
+            print(f"Renamed: {dirname} -> {new_name}")
+        except Exception as e:
+            print(f"Failed to rename {dirname}: {e}")
 
-    print(response.read())
+# Close FTP connection
+ftp.quit()
