@@ -1,15 +1,15 @@
-import os
-import re
-import time
-import shutil
-import datetime
-import requests
-from ftplib import FTP
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from urllib.parse import urlparse, parse_qs
+import time
+import os
+import re
 from selenium.webdriver.chrome.options import Options
+from ftplib import FTP
+import datetime
+import requests
+import shutil
 
 # Configurable Settings
 FTP_SERVER = os.getenv("FTP_SERVER", "109.205.183.137")
