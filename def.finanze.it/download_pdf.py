@@ -13,6 +13,7 @@ from selenium.webdriver.common.by import By
 FTP_SERVER = "109.205.183.137"
 FTP_USERNAME = "normative@db-legale.professionista-ai.com"
 FTP_PASSWORD = "aoewiuyrfpqiu34jf209i3f4"
+SERVER_URL = os.getenv("SERVER_URL", "http://188.245.216.211")
 
 # proxy_username = "dBmTABWe6lHt7Lzi"
 # proxy_password = "7hsc7iCVnOMLTmGO"
@@ -38,7 +39,6 @@ seleniumwire_options = {
 
 source_lists = ["Normativa", "Prassi", "Giurisprudenza"]
 
-SERVER_URL = os.getenv("SERVER_URL", "http://188.245.216.211")
 
 def download_pdf(base_dir, year):
     for source in source_lists:

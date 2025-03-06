@@ -56,6 +56,14 @@ def ScrapeList(year):
                         query_params = parse_qs(parsed_url.query)
                         date = query_params.get('atto.dataPubblicazioneGazzetta', [None])[0]
                         code = query_params.get('atto.codiceRedazionale', [None])[0]
+                        date_object = datetime.strptime(date, "%Y-%m-%d").date()
+
+                        current_date = datetime.today().date()
+                        difference = (current_date - date_object).days
+
+                        if difference <= 16:
+                            continue
+                        
                         output = extract_filename(content)
                         filename = f"{output['title']}_{year}.pdf"
                         print(output['title'])
