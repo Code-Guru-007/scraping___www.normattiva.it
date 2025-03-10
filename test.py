@@ -1,52 +1,52 @@
-# import os
-# import datetime
-# import requests
+import os
+import datetime
+import requests
 
-# SERVER_URL = "http://188.245.216.211"  # Replace with your actual server URL
+SERVER_URL = "http://188.245.216.211"  # Replace with your actual server URL
 
-# base_directory = os.path.join(os.getcwd(), "ilmerito.it", "download")  # Change this if the directories are not in the current working directory
+base_directory = os.path.join(os.getcwd(), "ilmerito.it", "download")  # Change this if the directories are not in the current working directory
 
-# for year in range(2010, 2025):
-#     year_directory = os.path.join(base_directory, str(year))
+for year in range(2010, 2025):
+    year_directory = os.path.join(base_directory, str(year))
     
-#     if not os.path.exists(year_directory) or not os.path.isdir(year_directory):
-#         continue  # Skip if the directory doesn't exist
-#     current = 0
-#     posted_filelink = []
-#     if os.path.exists('posted.txt'):
-#         with open("posted.txt", "r") as file:
-#             posted_filelink = [line.strip() for line in file.readlines()]
-#     for file in os.listdir(year_directory):
-#         current += 1
-#         file_path = os.path.join(year_directory, file)
+    if not os.path.exists(year_directory) or not os.path.isdir(year_directory):
+        continue  # Skip if the directory doesn't exist
+    current = 0
+    posted_filelink = []
+    if os.path.exists('posted.txt'):
+        with open("posted.txt", "r") as file:
+            posted_filelink = [line.strip() for line in file.readlines()]
+    for file in os.listdir(year_directory):
+        current += 1
+        file_path = os.path.join(year_directory, file)
 
-#         if not os.path.isfile(file_path):
-#             continue  # Skip if it's not a file
+        if not os.path.isfile(file_path):
+            continue  # Skip if it's not a file
         
-#         filename = file
-#         if file.lower().endswith(".doc"):
-#             filename = file.rsplit(".", 1)[0] + ".pdf"  # Change .doc to .pdf in filename
-#         if not filename.endswith(".pdf"):
-#             continue
-#         file_link = f"{year}/{filename}"
+        filename = file
+        # if file.lower().endswith(".doc"):
+        #     filename = file.rsplit(".", 1)[0] + ".pdf"  # Change .doc to .pdf in filename
+        if not filename.endswith(".pdf"):
+            continue
+        file_link = f"{year}/{filename}"
         
-#         if file_link in posted_filelink:
-#             print("Already Posted !")
-#             continue
+        if file_link in posted_filelink:
+            print("Already Posted !")
+            continue
 
-#         payload = {
-#             "fileName": filename,
-#             "status": True,
-#             "fileLink": file_link,
-#             "dateTime": datetime.datetime.now().isoformat()
-#         }
+        payload = {
+            "fileName": filename,
+            "status": True,
+            "fileLink": file_link,
+            "dateTime": datetime.datetime.now().isoformat()
+        }
 
-#         requests.post(f"{SERVER_URL}:8000/api/ilmerito.it", json=payload)
+        requests.post(f"{SERVER_URL}:8000/api/ilmerito.it", json=payload)
         
-#         with open('posted.txt', 'a') as file:
-#             file.write(f"{file_link}\n")
+        with open('posted.txt', 'a') as file:
+            file.write(f"{file_link}\n")
         
-#         print(f"[{year} ==>   {current}  /  {len(os.listdir(year_directory))}]")
+        print(f"[{year} ==>   {current}  /  {len(os.listdir(year_directory))}]")
 
 
 
