@@ -1,0 +1,170 @@
+/* Varie ******************************/
+
+#tmpl-banche-dati-fascia-top
+{
+    background-color: #0b3857;
+    padding-top: 20px;  
+    padding-bottom: 20px; 
+}
+
+#tmpl-banche-dati-titolo-principale
+{
+    color: #ffffff;
+}
+
+#tmpl-banche-dati-bottoni
+{
+    margin-top: 20px;
+    margin-bottom: 10px;    
+}
+
+#tmpl-banche-dati-bottoni-contenitore
+{
+    text-align: right;
+}
+
+#tmpl-banche-dati-seconda-fascia
+{
+    padding-top: 20px;  
+    padding-bottom: 20px; 
+}
+
+#tmpl-banche-dati-titolo-secondario 
+{
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+}
+
+#tmpl-banche-dati-fascia-sx > nav
+{
+    padding-top: 10px;
+}
+
+#tmpl-banche-dati-fascia-sx > nav ul li a
+{
+    text-decoration: underline;
+}
+
+#tmpl-banche-dati-fascia-sx > nav ul li p
+{
+    font-weight: bold;
+}
+
+
+@media only screen and (max-width: 767px) 
+{
+    #tmpl-banche-dati-bottoni-contenitore, #tmpl-banche-dati-titolo-principale-contenitore
+    {
+        text-align: center;
+    }
+    
+    #tmpl-banche-dati-bottoni .btn
+    {
+        font-size: 12px;       
+        padding: 5px 10px 2px 10px;
+    }
+   
+}
+
+footer  ul#lista-link-footer{
+	list-style: none;
+	margin-bottom: 0;
+}
+
+footer  ul#lista-link-footer li{
+	display: inline;
+}
+
+footer  ul#lista-link-footer li+li:before {
+    content: "\007c";
+    padding: 0 5px;
+}
+
+ul.list-group > li.list-group-item > ul.list-group > li.list-group-item
+{
+    border: 0;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+ul.list-group > li.list-group-item > p, ul.list-group ul.list-group
+{
+    margin-bottom: 0;
+}
+
+#tmpl-banche-dati-sottotitolo
+{
+    text-align: right;
+    display: block;
+    margin-top: 20px;   
+}
+
+h2.oggetti_classificazioni_liv_1
+{  
+    font-size: 90%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+h2.oggetti_classificazioni_liv_1::before {   
+    content: "\2022\00a0"; /* puntino + spazio */
+}
+
+h3.oggetti_classificazioni_liv_2
+{  
+    font-size: 90%;
+    padding-left: 20px;
+    margin-top: 0;
+    margin-bottom: 5px;    
+}
+
+h3.oggetti_classificazioni_liv_2::before {   
+    content: "\2192\00a0"; /* freccia dx + spazio */
+}
+
+
+/***************************************************/
+
+
+/* Stampe ******************************/
+
+@media print {
+
+   #tmpl-banche-dati-fascia-sx 
+   {
+       display: none;
+   }
+
+    #tmpl-banche-dati-fascia-top-1x1
+    {
+       display: none;
+    }
+    
+    #tmpl-banche-dati-titolo-principale-contenitore
+    {
+        width: 100%;
+    }
+    
+    #tmpl-banche-dati-titolo-principale
+    {
+        margin: 0;
+    }
+    
+    #tmpl-banche-dati-bottoni-contenitore
+    {
+       display: none;
+    }
+    
+    #contenuto-principale
+    {
+        width: 100%;
+    }
+    
+}
+
+/***************************************************/

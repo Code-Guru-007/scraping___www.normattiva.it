@@ -1,0 +1,2156 @@
+/* C'è una barra fissa in alto alta 50px
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+ */
+
+/* Barra top *****************************************************/
+
+#consvda-menu-top .nav > li > a:hover {
+  text-decoration: underline;
+}
+
+#consvda-menu-top .nav > li > a.social-barra-alto:hover {
+  text-decoration: none;
+}
+
+#consvda-menu-top .nav > li > a.social-barra-alto {
+  padding-right: 0;
+}
+
+#consvda-menu-top .nav > li > a > img {
+  border-radius: 1px;
+}
+
+#consvda-menu-top ul.nav.lingua {
+  padding-top: 15px;
+}
+
+  #consvda-menu-top ul.nav.lingua li a {
+    padding: 0 5px;
+  }
+
+#consvda-menu-top ul.navbar-nav.lingua li:last-child {
+  border-left: 1px solid #ffffff;
+}
+
+@media only screen and (max-width: 767px) {
+
+  #consvda-menu-top ul.navbar-nav.lingua li:last-child {
+    border-left: 0;
+  }
+}
+
+.allegato {
+  position: relative;
+  display:inline-block;
+  margin-left:28px;
+}
+
+.allegato .ico-allegato {
+  position: absolute;
+  left: -28px;
+  top: 8px;
+  width: 24px;
+  height: 25px;
+  background-image: url(../../img/icone_allegati/icona_trasparente.gif);
+}
+
+  .allegato .ico-allegato.pdf {
+    background-image: url(../../img/icone_allegati/icona_pdf.gif);
+  }
+
+  .allegato .ico-allegato.doc {
+    background-image: url(../../img/icone_allegati/icona_doc.gif);
+  }
+
+  .allegato .ico-allegato.xls {
+    background-image: url(../../img/icone_allegati/icona_xls.gif);
+  }
+
+  .allegato .ico-allegato.zip {
+    background-image: url(../../img/icone_allegati/icona_zip.gif);
+  }
+
+/***************************************************/
+
+/* Barra logo e menu *****************************************************/
+#consvda-header-logo-menu {
+  padding-top: 15px;
+}
+
+  #consvda-header-logo-menu .brand {
+    display: block;
+  }
+
+  #consvda-header-logo-menu ul.social {
+    padding: 0;
+    list-style: none;
+  }
+
+    #consvda-header-logo-menu ul.social li {
+      display: inline-block;
+    }
+
+#consvda-menu-principale ul {
+  list-style: none;
+}
+
+  #consvda-menu-principale ul li {
+    padding: 6px;
+    border-bottom: 1px solid #999999;
+    display: inline-block;
+    width: 99%;
+    margin-right: 20px;
+  }
+
+    #consvda-menu-principale ul li.menu-principale-attivo a {
+      color: #ffffff;
+    }
+
+.logo-consiglio {
+  text-align: center;
+}
+
+@media only screen and (min-width: 992px) {
+  #consvda-menu-principale ul li {
+    width: 30%;
+  }
+
+  .logo-consiglio {
+    text-align: right;
+    margin-top: 25px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #consvda-menu-principale ul {
+    padding-left: 20px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #consvda-menu-principale ul {
+    padding-left: 0;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  #consvda-menu-principale ul {
+    padding-left: 0;
+  }
+}
+
+/***************************************************/
+
+/* Breadcrumb *****************************************************/
+
+.breadcrumb a {
+  color: #ffffff;
+}
+
+/***************************************************/
+
+
+/* Menu contestuale *****************************************************/
+
+#menu-contestuale ul.list-group li.list-group-item.active a {
+  color: #ffffff;
+}
+
+#menu-contestuale ul.list-group li.list-group-item ul.list-group {
+  margin-top: 15px;
+}
+
+/***************************************************/
+
+
+/* Box InfoConseil - Fascia sotto *****************************************************/
+
+#sezione-infoconseil {
+  background-color: #dee3e7;
+  margin-top: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+  #sezione-infoconseil hr {
+    border-color: #0b3857;
+  }
+
+  #sezione-infoconseil img#img-home-infoconseil {
+    max-width: 100%;
+  }
+
+  #sezione-infoconseil div.sezione-infoconseil-box {
+    text-align: center;
+  }
+
+    #sezione-infoconseil div.sezione-infoconseil-box span {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+      #sezione-infoconseil div.sezione-infoconseil-box span.glyphicon {
+        font-size: 60px;
+      }
+
+    #sezione-infoconseil div.sezione-infoconseil-box a:hover {
+      text-decoration: none;
+    }
+
+    #sezione-infoconseil div.sezione-infoconseil-box span.sezione-info-conseil-box-testo {
+      font-size: 16px;
+    }
+
+      #sezione-infoconseil div.sezione-infoconseil-box span.sezione-info-conseil-box-testo:hover {
+        text-decoration: underline;
+      }
+
+    #sezione-infoconseil div.sezione-infoconseil-box a {
+      color: #0b3857;
+    }
+
+@media only screen and (max-width: 767px) {
+
+  #sezione-infoconseil div.sezione-infoconseil-box span.glyphicon {
+    font-size: 70px;
+  }
+
+  #sezione-infoconseil div.sezione-infoconseil-box span.sezione-info-conseil-box-testo {
+    font-size: 18px;
+  }
+
+  #sezione-infoconseil div.sezione-infoconseil-box {
+    padding-bottom: 30px;
+  }
+}
+
+#sezione-infoconseil div.sezione-infoconseil-box-new {
+  text-align: center;
+}
+
+  #sezione-infoconseil div.sezione-infoconseil-box-new span {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+    #sezione-infoconseil div.sezione-infoconseil-box-new span.glyphicon {
+      font-size: 150px;
+    }
+
+  #sezione-infoconseil div.sezione-infoconseil-box-new a:hover {
+    text-decoration: none;
+  }
+
+  #sezione-infoconseil div.sezione-infoconseil-box-new span.sezione-info-conseil-box-testo-new {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+    #sezione-infoconseil div.sezione-infoconseil-box-new span.sezione-info-conseil-box-testo-new:hover {
+      text-decoration: underline;
+    }
+
+  #sezione-infoconseil div.sezione-infoconseil-box-new a {
+    color: #0b3857;
+  }
+
+@media only screen and (max-width: 1199px) {
+  #sezione-infoconseil div.sezione-infoconseil-box-new span.glyphicon {
+    font-size: 110px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  #sezione-infoconseil div.sezione-infoconseil-box-new span.glyphicon {
+    font-size: 90px;
+  }
+
+  #sezione-infoconseil div.sezione-infoconseil-box-new span.sezione-info-conseil-box-testo-new {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #sezione-infoconseil div.sezione-infoconseil-box-new span.glyphicon {
+    font-size: 110px;
+  }
+
+  #sezione-infoconseil div.sezione-infoconseil-box-new span.sezione-info-conseil-box-testo-new {
+    font-size: 18px;
+  }
+
+  #sezione-infoconseil div.sezione-infoconseil-box-new {
+    margin-top: 20px;
+  }
+}
+
+#sezione-infoconseil .info-conseil-box-video-img {
+  width: 75.3%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#sezione-infoconseil .info-conseil-box-video-img-new {
+  width: 75.3%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 6px;
+}
+
+#sezione-infoconseil .info-conseil-box-video-testo {
+  width: 75.3%;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 767px) {
+  #sezione-infoconseil .info-conseil-box-video-img-new {
+    width: 50%;
+  }
+
+  #sezione-infoconseil .info-conseil-box-video-testo {
+    width: 50%;
+  }
+}
+
+#sezione-infoconseil .info-conseil-box-video-testo:hover {
+  text-decoration: underline;
+}
+
+#carousel-infoconseil-home div.carousel-inner div.item p {
+  margin-right: 40px;
+  margin-left: 40px;
+  margin-top: 15px;
+  padding-top: 10px;
+  margin-bottom: 15px;
+  height: 160px;
+}
+
+#carousel-infoconseil-home .carousel-control.left, #sezione-infoconseil .carousel-control.right {
+  background: none;
+  color: #0b3857;
+}
+
+#carousel-infoconseil-home .carousel-indicators li {
+  border-color: #0b3857;
+}
+
+#carousel-infoconseil-home .carousel-indicators .active {
+  background-color: #0b3857;
+}
+
+/*
+#sezione-infoconseil .info-conseil-box-video-body
+{
+    background-color: #0b3857;
+}
+
+#sezione-infoconseil .info-conseil-container-box-colonne
+{
+    background-color: #0b3857;
+    padding-top: 20px;
+    border-radius: 6px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+}
+*/
+
+/***************************************************/
+
+
+/* Box Donna anno, Portes Ouvertes, Scuola per la democrazia, Conseil des Jeunes **********/
+
+#sezione-da-po-sd-cj {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+  #sezione-da-po-sd-cj a img {
+    max-width: 100%;
+  }
+
+  #sezione-da-po-sd-cj span.h4 {
+    display: block;
+  }
+
+/***************************************************/
+
+
+/* Box Per i cittadini ******************************/
+
+#per-i-cittadini {
+  padding-top: 30px;
+  padding-bottom: 15px;
+}
+
+  #per-i-cittadini a {
+    color: #ffffff;
+  }
+
+    #per-i-cittadini a img {
+      max-width: 25%;
+      background-color: #ffffff;
+      border-radius: 50%;
+    }
+
+@media only screen and (max-width: 767px) {
+  #per-i-cittadini a img {
+    max-width: 15%;
+  }
+
+  #per-i-cittadini div.col-sm-4 {
+    padding-bottom: 10px;
+  }
+}
+
+#per-i-cittadini span.h4 {
+  display: block;
+}
+
+/***************************************************/
+
+/* Lista link ******************************/
+
+#lista-link ul#lista-home-trasparenza {
+  padding-left: 0;
+  list-style: none;
+}
+
+  #lista-link ul#lista-home-trasparenza li {
+    border-bottom: 1px solid #999999;
+    padding: 6px;
+  }
+
+  #lista-link ul#lista-home-trasparenza li {
+    border-bottom: 1px solid #999999;
+    padding: 6px;
+  }
+
+#lista-link ul#lista-home-contatti {
+  padding-left: 0;
+  list-style: none;
+}
+
+  #lista-link ul#lista-home-contatti li {
+    border-bottom: 1px solid #999999;
+    padding: 6px;
+  }
+
+  #lista-link ul#lista-home-contatti li {
+    border-bottom: 1px solid #999999;
+    padding: 6px;
+  }
+
+#lista-link ul#lista-home-siti-istituzionali {
+  list-style: none;
+  padding-left: 0;
+}
+
+  #lista-link ul#lista-home-siti-istituzionali li {
+    border-bottom: 1px solid #999999;
+    padding: 6px;
+  }
+
+  #lista-link ul#lista-home-siti-istituzionali li {
+    border-bottom: 1px solid #999999;
+    padding: 6px;
+    display: inline-block;
+    width: 99%;
+    margin-right: 20px;
+  }
+
+@media only screen and (min-width: 992px) {
+  #lista-link ul#lista-home-siti-istituzionali li {
+    width: 45%;
+  }
+}
+
+#lista-link footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+  #lista-link footer ul#lista-link-footer {
+    list-style: none;
+    margin-bottom: 0;
+  }
+
+    #lista-link footer ul#lista-link-footer li {
+      display: inline;
+    }
+
+      #lista-link footer ul#lista-link-footer li + li:before {
+        content: "\007c";
+        padding: 0 5px;
+      }
+/***************************************************/
+
+/* Homepage di sezione ******************************/
+
+#homepage-di-sezione-1 {
+  background-color: #eee;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+  #homepage-di-sezione-1 #homepage-di-sezione-1-img {
+    width: 100%;
+    border-radius: 6px;
+  }
+
+#homepage-di-sezione-2 ul#lista-homepage-sezione {
+  list-style: none;
+  padding-left: 0;
+}
+
+  #homepage-di-sezione-2 ul#lista-homepage-sezione li:before {
+    content: "\00bb";
+    padding-right: 5px;
+  }
+
+  #homepage-di-sezione-2 ul#lista-homepage-sezione li {
+    padding: 6px;
+    display: inline-block;
+    width: 99%;
+    margin-right: 20px;
+    vertical-align: top;
+  }
+
+@media only screen and (min-width: 992px) {
+  #homepage-di-sezione-2 ul#lista-homepage-sezione li {
+    width: 45%;
+  }
+}
+
+/***************************************************/
+
+
+/* Contenuto principale ******************************/
+
+/* Per non fare comparire un bordo intorno al main che ha un link di accessibilità all'inizio del body */
+#contenuto-principale:focus {
+  outline: none;
+}
+
+#contenuto-principale {
+  padding-bottom: 10px;
+}
+
+h1.titolo-pagina {
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+}
+
+/***************************************************/
+
+
+/* Tabelle, liste particolari, dettaglio record ******************************/
+
+.tabella_elenco {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+  .tabella_elenco caption {
+    border-bottom: 1px solid #555555;
+    color: #555555;
+    font-weight: bold;
+    padding-bottom: 0;
+    padding-top: 30px;
+    margin-bottom: 5px;
+  }
+
+  .tabella_elenco.senzatitolo {
+    border-top: 1px solid #555555;
+    margin-top: 25px;
+  }
+
+.tabella_elenco_contenuti {
+  padding-top: 5px;
+  padding-right: 10px;
+}
+
+h2.elenco_puntato_titolo {
+  border-bottom: 1px solid #555555;
+  font-weight: bold;
+  padding-bottom: 0;
+  padding-top: 30px;
+  font-size: inherit;
+  color: #555555;
+  margin-bottom: 5px;
+  line-height: 20px;
+}
+
+ul.elenco_semplice {
+  list-style-type: none;
+  padding: 2px 0 5px 0;
+  line-height: 20px;
+}
+
+  ul.elenco_semplice.bordo_superiore {
+    border-top: 1px solid #555555;
+    padding: 0;
+    margin: 15px 0 5px 0;
+  }
+
+ul.lista_paginata {
+  list-style-type: none;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+  ul.lista_paginata > li > p.titolo_lista_paginata {
+    border-bottom: 1px solid #555555;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 20px;
+  }
+
+  ul.lista_paginata > li > p.sottotitolo_lista_paginata {
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 6px;
+  }
+
+  ul.lista_paginata > li > p.collegamento_lista_paginata {
+    margin-bottom: 0;
+    margin-top: 4px;
+  }
+
+  ul.lista_paginata.solo_link {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+    ul.lista_paginata.solo_link > li > p.collegamento_lista_paginata {
+      margin-top: 20px;
+      padding-top: 4px;
+      border-top: 1px solid #0b3857;
+    }
+
+  ul.lista_paginata > li > p.elemento_lista_paginata,
+  ul.lista_paginata > li > div.clearfix > p.elemento_lista_paginata {
+    margin-bottom: 0;
+    margin-top: 4px;
+  }
+
+  ul.lista_paginata > li > p.colonna_1_su_2_lista_paginata {
+    width: 50%;
+    float: left;
+  }
+
+  ul.lista_paginata > li > p.colonna_2_su_2_lista_paginata {
+    width: 50%;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+
+  ul.lista_paginata > li > p.colonna_1_su_3_lista_paginata {
+    width: 10%;
+    float: left;
+  }
+
+  ul.lista_paginata > li > p.colonna_2_su_3_lista_paginata {
+    width: 60%;
+    float: left;
+  }
+
+  ul.lista_paginata > li > p.colonna_3_su_3_lista_paginata {
+    width: 30%;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+
+  ul.lista_paginata > li > p.collegamento_lista_paginata_banche_dati {
+    margin-top: 25px;
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+
+  ul.lista_paginata > li > p.titolo_lista_paginata_banche_dati {
+    margin-top: 25px;
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+
+  ul.lista_paginata > li p.info_conseil_collegamento {
+    margin-bottom: 0;
+  }
+
+  ul.lista_paginata > li > p.info_conseil_primo_elemento_lista_paginata {
+    margin-top: 15px;
+    padding-top: 4px;
+  }
+
+  ul.lista_paginata > li img.lista-paginata-immagine {
+    max-width: 15%;
+    margin-right: 10px;
+  }
+
+  ul.lista_paginata > li.info-conseil-lista-eventi,
+  ul.lista_paginata > li.info-conseil-lista-pubblicazioni {
+    margin-top: 25px;
+  }
+
+  ul.lista_paginata > li div.clearfix img.info-conseil-pubblicazioni-lista-paginata-immagine {
+    max-width: 30%;
+    margin-right: 10px;
+  }
+
+.tabella_paginazione {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  padding: 10px;
+}
+
+.note {
+  font-size: 85%;
+}
+
+.tabella_paginazione #pagina {
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+}
+
+h2.documenti_allegati_titolo, h3.documenti_allegati_titolo, h4.documenti_allegati_titolo {
+  padding-top: 10px;
+  clear: both;
+}
+
+ul.documenti_allegati_container {
+  list-style-type: none;
+  padding: 0;
+}
+
+  ul.documenti_allegati_container > li {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: top;
+    width: 112px;
+  }
+
+    ul.documenti_allegati_container > li > p {
+      text-align: center;
+    }
+
+      ul.documenti_allegati_container > li > p > a {
+        font-size: 85%;
+      }
+
+/***************************************************/
+
+/* Consiglio in diretta ******************************/
+
+.diretta-youtube {
+  margin-bottom: 40px;
+}
+
+.diretta-ico-youtube {
+  margin-right: 15px;
+}
+
+@media only screen and (min-width: 650px) {
+  .diretta-testo-youtube {
+    line-height: 70px;
+  }
+}
+
+.form-diretta {
+  margin-bottom: 15px;
+}
+
+.form-inline .form-control.diretta-e-mail {
+  width: 250px;
+}
+
+.fram-consiglio-in-diretta-new {
+  padding-bottom: 50px;
+}
+
+.immagine-consiglio-in-diretta {
+  max-width: 100%;
+}
+
+.fram-consiglio-in-diretta {
+  border: 0;
+  width: 800px;
+  height: 495px;
+}
+
+@media only screen and (max-width: 1199px) {
+
+  .fram-consiglio-in-diretta {
+    width: 670px;
+    height: 414px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+
+  .fram-consiglio-in-diretta {
+    /* */
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  .fram-consiglio-in-diretta {
+    width: 450px;
+    height: 278px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .fram-consiglio-in-diretta {
+    width: 250px;
+    height: 154px;
+    max-width: 100%;
+  }
+}
+
+div.diretta-consiglio {
+  text-align: center;
+  background-color: #eeeeee;
+  padding: 5px;
+}
+
+/***************************************************/
+
+
+/* Tabella rendiconti (pagine statiche in Trasparenza politica) ******************************/
+
+.tabella_rendiconti {
+  line-height: 22px;
+  width: 80%;
+  margin: auto;
+  border-spacing: 0px;
+}
+
+  .tabella_rendiconti > caption {
+    font-weight: bold;
+    border-bottom: 3px solid #0b3857;
+    color: #555555;
+    text-align: center;
+  }
+
+  .tabella_rendiconti tr > td {
+    padding: 3px;
+  }
+
+    .tabella_rendiconti tr > td:first-child {
+      padding-left: 15px;
+    }
+
+    .tabella_rendiconti tr > td:last-child {
+      text-align: right;
+    }
+
+/***************************************************/
+
+/* Donna dell'anno ******************************/
+.donna-dell-anno-colonna-sponsor {
+  padding: 7px;
+}
+
+.donna-dell-anno-sponsor {
+  background-color: #7c7c7c;
+  padding: 10px;
+  color: #000000;
+  font-weight: bold;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+  .donna-dell-anno-sponsor div {
+    margin-top: 15px;
+  }
+
+  .donna-dell-anno-sponsor img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.donna-dell-anno-colonna-sponsor-new {
+  padding: 7px;
+}
+
+.donna-dell-anno-sponsor-new {
+  background-color: #ffffff;
+  padding: 10px;
+  color: #000000;
+  font-size: 11px;
+  text-align: center;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+  .donna-dell-anno-sponsor-new div {
+    margin-top: 15px;
+  }
+
+  .donna-dell-anno-sponsor-new img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+.donna-dell-anno-regolamento a {
+  text-decoration: underline;
+}
+
+.donna-dell-anno-scheda-candidatura a, .donna-dell-anno-regolamento a, .donna-dell-anno-media a {
+  text-decoration: underline;
+}
+
+.donna-dell-anno-home-video-img, donna-dell-anno-home-foto-img {
+  width: 100%;
+}
+
+/***************************************************/
+
+
+/* Portes Ouvertes ******************************/
+
+.portes-ouvertes-box-link {
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: 4px;
+}
+
+  .portes-ouvertes-box-link a {
+    color: #ffffff;
+  }
+
+.portes-ouvertes-pubbl-titolo {
+  margin-top: 40px;
+}
+
+.portes-ouvertes-pubbl-img {
+  width: 100%;
+}
+
+.portes-ouvertes-galleria-foto {
+  margin-bottom: 30px;
+}
+
+/***************************************************/
+
+/* Portes Ouvertes - Calendario prenotazioni ******************************/
+
+.portes-ouvertes-calendario-titolo {
+  text-align: center;
+}
+
+.giorno_disattivato {
+  font-size: small;
+  color: #CCCCCC;
+  text-align: center;
+  vertical-align: middle;
+  border-right: 0px;
+}
+
+.giorno_libero {
+  font-size: small;
+  text-align: center;
+  font-weight: bold;
+  vertical-align: middle;
+  border-right: 0px;
+}
+
+.giorno_prenotato {
+  font-size: small;
+  text-align: center;
+  font-weight: bold;
+  background-color: #CCCCCC;
+  vertical-align: middle;
+  border-right: 0px;
+}
+
+.giorno_occupato {
+  font-size: small;
+  text-align: center;
+  font-weight: bold;
+  background-color: #DDB032;
+  vertical-align: middle;
+  border-right: 0px;
+}
+
+.giorno_consiglio {
+  font-size: small;
+  text-align: center;
+  font-weight: bold;
+  background-color: #CC0000;
+  vertical-align: middle;
+  border-right: 0px;
+}
+
+/***************************************************/
+
+/* Scuola per la democrazia ******************************/
+
+.scuola-democrazia-box-link {
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: 3px;
+}
+
+  .scuola-democrazia-box-link a {
+    color: #ffffff;
+  }
+
+.scuola-democrazia-colonna-sponsor {
+  padding: 7px;
+}
+
+.scuola-democrazia-sponsor {
+  background-color: #237c8c;
+  padding: 10px;
+  color: #000000;
+  font-weight: bold;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+  .scuola-democrazia-sponsor div {
+    margin-top: 15px;
+  }
+
+  .scuola-democrazia-sponsor img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+
+/* Osservatorio regionale Antimafia ******************************/
+
+.osservatorio-antimafia-box-link {
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: 3px;
+}
+
+  .osservatorio-antimafia-box-link a {
+    color: #ffffff;
+  }
+
+.osservatorio-antimafia-colonna-sponsor {
+  padding: 7px;
+}
+
+.osservatorio-antimafia-sponsor {
+  background-color: #661728;
+  padding: 10px;
+  color: #000000;
+  font-weight: bold;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+  .osservatorio-antimafia-sponsor div {
+    margin-top: 15px;
+  }
+
+  .osservatorio-antimafia-sponsor img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.osservatorio-antimafia-cs-
+
+
+
+
+
+.osservatorio-antimafia-cs {
+  padding-top: 30px;
+}
+
+.osservatorio-antimafia-cs .osservatorio-antimafia-cs-list {
+  padding-top: 0;
+}
+
+.osservatorio-antimafia-cs .osservatorio-antimafia-cs-panel-footer {
+  background-color: #ffffff;
+  padding: 0;
+}
+
+.osservatorio-antimafia-cs ul.lista_paginata > li p.collegamento {
+  margin-bottom: 0;
+}
+
+.osservatorio-antimafia-cs ul.lista_paginata > li > p.primo_elemento_lista_paginata {
+  margin-top: 15px;
+  padding-top: 4px;
+}
+
+
+
+
+/***************************************************/
+
+
+/* Amministrazione trasparente ******************************/
+
+div.menu_evidenze {
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin-top: 25px;
+  overflow: hidden;
+}
+
+  div.menu_evidenze > div.sfondo_evidenze {
+    display: none;
+  }
+
+  div.menu_evidenze > div.colonna1_evidenze {
+    width: 100%;
+  }
+
+  div.menu_evidenze > div.colonna2_evidenze {
+    width: 100%;
+  }
+
+@media only screen and (min-width: 992px) {
+  div.menu_evidenze > div.colonna1_evidenze {
+    float: left;
+    width: 50%;
+    padding-right: 7px;
+    border-right: 1px solid #dddddd;
+  }
+
+  div.menu_evidenze > div.colonna2_evidenze {
+    float: left;
+    width: 50%;
+    padding-left: 7px;
+  }
+}
+
+div.menu_evidenze div.sottomenu_evidenze {
+  background-color: #4d799c;
+  border-radius: 4px;
+  padding: 5px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #ffffff;
+  font-size: 85%;
+}
+
+  div.menu_evidenze div.sottomenu_evidenze > a {
+    color: #ffffff;
+  }
+
+
+div.menu_evidenze > div.colonna_evidenze_lista_unica {
+  width: 100%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+/***************************************************/
+
+
+/* UN CONSEIL POUR L'ECOLE ******************************/
+
+.un-conseil-pour-l-ecole-colonna-sponsor {
+  padding: 7px;
+}
+
+.un-conseil-pour-l-ecole-sponsor div {
+  margin-top: 15px;
+}
+
+.un-conseil-pour-l-ecole-sponsor img {
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+}
+
+.un-conseil-pour-l-ecole-box-link {
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: 3px;
+}
+
+  .un-conseil-pour-l-ecole-box-link a {
+    color: #ffffff;
+  }
+
+
+/***************************************************/
+
+
+
+/* Banche dati ******************************/
+
+div.banche_dati_colonna {
+  float: left;
+}
+
+  div.banche_dati_colonna.banche_dati_colonna_uno {
+    margin-right: 14px;
+  }
+
+h3.h4.banche-dati-rinvii-titolo {
+  margin-top: 40px;
+}
+
+option.banche-dati-classificazione-principale {
+  background-color: #eeeeee;
+  font-weight: bold;
+}
+
+form.ricerca-banche-dati {
+  padding-top: 15px;
+  padding-bottom: 25px;
+}
+
+/***************************************************/
+
+
+/* Homepage ******************************/
+
+.jumbotron-home {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+  .jumbotron-home h1 {
+    font-size: 30px;
+  }
+}
+
+#super-evidenza {
+  margin-top: 20px;
+}
+
+img.super-evidenza-img {
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 33%;
+}
+
+ul.menu-home-bottoni {
+  list-style: outside none none;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+}
+
+  ul.menu-home-bottoni li {
+    display: inline-block;
+    margin-right: 0;
+    margin-left: 0;
+    width: 19.5%;
+  }
+
+    ul.menu-home-bottoni li a.btn {
+      width: 100%;
+      font-size: 14px;
+      padding: 8px;
+      line-height: 28px;
+    }
+
+      ul.menu-home-bottoni li a.btn img {
+        display: inline-block;
+        height: 28px;
+        margin-right: 10px;
+        background-color: #0b3857;
+        border-radius: 50%;
+      }
+
+@media only screen and (max-width: 991px) {
+
+  ul.menu-home-bottoni li a.btn {
+    font-size: 13px;
+  }
+
+    ul.menu-home-bottoni li a.btn img {
+      height: 26px;
+      margin-right: 4px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+  ul.menu-home-bottoni li {
+    display: block;
+    width: 100%;
+  }
+
+    ul.menu-home-bottoni li a.btn {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+      ul.menu-home-bottoni li a.btn img {
+        height: 28px;
+        margin-right: 10px;
+      }
+}
+
+ul.menu-home-evidenze {
+  list-style: none;
+  padding-left: 0;
+}
+
+  ul.menu-home-evidenze li.evidenza {
+    padding: 6px;
+    display: inline-block;
+    width: 99%;
+    margin-right: 20px;
+    vertical-align: top;
+    margin-top: 10px;
+  }
+
+@media only screen and (min-width: 992px) {
+  ul.menu-home-evidenze li.evidenza {
+    width: 30%;
+    margin-top: 5px;
+  }
+}
+
+ul.menu-home-evidenze li.evidenza img.evidenza-img {
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  padding: 5px;
+  float: left;
+  margin-right: 7px;
+}
+
+ul.menu-home-evidenze li.evidenza a.evidenza-titolo {
+  color: #0b3857;
+  text-decoration: underline;
+}
+
+/***************************************************/
+
+
+/* InfoConseil ******************************/
+
+img.info-conseil-boxdx-video-img {
+  width: 100%;
+}
+
+a.info-conseil-boxdx-video-link {
+  text-decoration: underline;
+}
+
+.jumbotron-infoconseil-home .info-conseil-home-leggi-tutto-jt {
+  text-decoration: none;
+}
+
+.jumbotron-infoconseil-home .small {
+  font-size: 85%;
+}
+
+.jumbotron-infoconseil-home p.info-conseil-home-contenuto-jt {
+  font-size: 14px;
+}
+
+ul.info-conseil-bottoni {
+  list-style: outside none none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+  ul.info-conseil-bottoni li {
+    display: inline-block;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  ul.info-conseil-bottoni li {
+    width: 100%;
+  }
+
+@media only screen and (min-width: 500px) {
+  ul.info-conseil-bottoni li {
+    width: 49.5%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  ul.info-conseil-bottoni li {
+    width: 24.6%;
+  }
+}
+
+ul.info-conseil-bottoni li a.btn {
+  width: 100%;
+  font-size: 14px;
+  padding: 7px;
+  text-decoration: none;
+  background-color: #0b3857;
+  line-height: 31px;
+  color: #ffffff;
+}
+
+  ul.info-conseil-bottoni li a.btn:hover {
+    text-decoration: underline;
+  }
+
+  ul.info-conseil-bottoni li a.btn img {
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    padding: 2px;
+    height: 30px;
+  }
+
+#info-conseil-home-ultima-riga {
+  padding-top: 30px;
+}
+
+.info-conseil-panel-body {
+  padding-top: 0;
+}
+
+.info-conseil-panel-footer {
+  background-color: #ffffff;
+  padding: 0;
+}
+
+.info-conseil-tabella-paginazione {
+  margin-top: 0;
+  border: 0;
+}
+
+.info-conseil-panel-body-com-gruppi {
+  margin-top: -23px;
+}
+
+.info-conseil-panel-footer-com-gruppi a,
+.info-conseil-panel-footer-eventi a,
+.info-conseil-panel-footer-pubblicazioni a,
+.info-conseil-panel-footer-adunanza-archivio a {
+  text-decoration: none;
+}
+
+.info-conseil-miniatura-colonne-img {
+  width: 100%;
+}
+
+.info-conseil-home-container-colonne {
+  background-color: #0b3857;
+  padding-top: 20px;
+  border-radius: 6px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.info-conseil-com-stampa-img {
+  max-width: 30%;
+  margin-right: 15px;
+}
+
+.info-conseil-rassegna-completa-adunanza img {
+  margin-right: 10px;
+}
+
+.info-conseil-rassegna-completa-adunanza .h4 {
+  display: inline-block;
+  text-decoration: underline;
+}
+
+.info-conseil-adunanza-container-colonne {
+  background-color: #eeeeee;
+  padding-top: 20px;
+  border-radius: 6px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 20px;
+}
+
+.info-conseil-panel-body-adunanza-archivio {
+  padding-bottom: 0;
+  background-color: #f5f5f5;
+}
+
+.info-conseil-panel-commissioni,
+.info-conseil-panel-attivita {
+  padding-bottom: 0;
+}
+
+  .info-conseil-panel-body-adunanza-archivio ul.list-group li.list-group-item,
+  .info-conseil-panel-commissioni ul.list-group li.list-group-item,
+  .info-conseil-panel-attivita ul.list-group li.list-group-item {
+    padding-bottom: 0;
+  }
+
+.info-conseil-lista-archivio-sedute {
+  margin-top: 30px;
+}
+
+.info-conseil-home-panel-eventi-iniziative {
+  padding-top: 0;
+}
+
+  .info-conseil-home-panel-eventi-iniziative p.small {
+    margin-top: 25px;
+  }
+
+form#frmricercacomunicati label {
+  font-weight: normal;
+}
+
+form#frmricercacomunicati input[type="radio"] {
+  margin-right: 3px;
+}
+
+form#frmricercacomunicati {
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 20px;
+}
+
+  form#frmricercacomunicati .info-conseil-ricerca-data {
+    display: inline-block;
+    width: 120px;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
+  form#frmricercacomunicati .info-conseil-ricerca-testo {
+    display: inline-block;
+    width: 175px;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
+  form#frmricercacomunicati #seduta_consiglio {
+    display: inline-block;
+    width: 257px;
+    margin-left: 5px;
+  }
+
+  form#frmricercacomunicati .info-conseil-riga-form {
+    margin-bottom: 7px;
+  }
+
+  form#frmricercacomunicati .info-conseil-riga2-form {
+    margin-top: 30px;
+    margin-bottom: 7px;
+  }
+
+ul.ricercacomunicatistampa {
+  padding-top: 0;
+}
+
+/***************************************************/
+
+
+/* Mediateca ******************************/
+
+ul.menu-mediateca-bottoni {
+  list-style: outside none none;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+  ul.menu-mediateca-bottoni li {
+    display: inline-block;
+    margin-right: 0;
+    margin-left: 0;
+    width: 32.9%;
+  }
+
+    ul.menu-mediateca-bottoni li a.btn {
+      width: 100%;
+      font-size: 16px;
+      padding: 8px;
+      line-height: 30px;
+      text-decoration: none;
+      background-color: #0b3857;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+      ul.menu-mediateca-bottoni li a.btn img {
+        display: inline-block;
+        height: 50px;
+        margin-right: 10px;
+        background-color: #0b3857;
+        border-radius: 50%;
+      }
+
+form.colonna-dx-mediateca-ricerca .form-control::-moz-placeholder {
+  font-size: 13.4px;
+}
+
+form.colonna-dx-mediateca-ricerca .form-control:-ms-input-placeholder {
+  font-size: 13.4px;
+}
+
+form.colonna-dx-mediateca-ricerca .form-control::-webkit-input-placeholder {
+  font-size: 13.4px;
+}
+
+form.colonna-dx-mediateca-ricerca .form-control::placeholder {
+  font-size: 13.4px;
+}
+
+.mediateca-home-video,
+.mediateca-home-foto,
+.mediateca-home-podcast {
+  margin-top: 30px;
+}
+
+  .mediateca-home-video .mediateca-home-video-video-img,
+  .mediateca-home-foto .mediateca-home-foto-foto-img {
+    width: 100%;
+  }
+
+  .mediateca-home-video ul.mediateca-lista,
+  .mediateca-home-foto ul.mediateca-lista {
+    list-style: none;
+    padding: 0;
+  }
+
+    .mediateca-home-video ul.mediateca-lista > li,
+    .mediateca-home-foto ul.mediateca-lista > li {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+@media only screen and (min-width: 768px) {
+  .mediateca-home-video .mediateca-home-video-panel,
+  .mediateca-home-foto .mediateca-home-foto-panel {
+    margin-bottom: 0;
+  }
+}
+
+.mediateca-foto-box-dx, .mediateca-video-box-dx {
+  margin-top: 20px;
+}
+
+ul.mediateca-video-sezioni-elenco {
+  margin-bottom: 0;
+}
+
+.mediateca-video-paginazione {
+  margin-top: 0;
+  border: 0;
+}
+
+.mediateca-panel-footer {
+  background-color: #ffffff;
+  padding: 0;
+}
+
+
+ul.mediateca-galleria-foto {
+  padding-left: 0;
+  padding-top: 15px;
+  margin: 25px 0 30px 0;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  border: 1px solid #dddddd;
+}
+
+  ul.mediateca-galleria-foto li {
+    float: left;
+    list-style: outside none none;
+    padding-left: 15px;
+    padding-bottom: 15px;
+  }
+
+    ul.mediateca-galleria-foto li img {
+      height: 100px;
+      border-radius: 3px;
+      border: 1px solid #0b3857;
+      padding: 3px;
+    }
+
+.img-mediateca-galleria-foto-lista:focus, .img-mediateca-galleria-foto-lista:hover {
+  outline: none;
+  opacity: 0.6;
+}
+
+.mediateca-galleria-foto-elenco-anni {
+  list-style: outside none none;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 7px;
+  margin-bottom: 30px;
+}
+
+  .mediateca-galleria-foto-elenco-anni > li {
+    display: inline-block;
+  }
+
+    .mediateca-galleria-foto-elenco-anni > li + li::before {
+      content: "\00a0\007c\00a0"; /* spazio + pipe + spazio */
+    }
+
+ul.lista_paginata > li.mediateca-galleria-foto-elemento-lista {
+  margin-top: 15px;
+}
+
+ul.lista_paginata > li div.mediateca-galleria-foto-contenitore-immagine {
+  width: 12%;
+  padding-right: 10px;
+}
+
+ul.lista_paginata > li p.mediateca-galleria-foto-collegamento {
+  margin-bottom: 0;
+}
+
+.mediateca-podcast-titolo {
+  padding-top: 15px;
+}
+
+.mediateca-podcast-titolo-sx {
+  float: left;
+  max-width: 88%;
+}
+
+.mediateca-podcast-titolo-dx {
+  float: right;
+}
+
+.mediateca-podcast-item {
+  padding-top: 20px;
+}
+
+.mediateca-podcast-item-1 {
+  float: left;
+  max-width: 88%;
+}
+
+.mediateca-podcast-item-2 {
+  float: right;
+}
+
+.tabella_paginazione #pagina_foto {
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+}
+
+.tabella_paginazione #pagina_video {
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+}
+
+.mediateca-ricerca-video,
+.mediateca-ricerca-foto {
+  margin-top: 30px;
+}
+
+  .mediateca-ricerca-video .mediateca-ricerca-video-video-img,
+  .mediateca-ricerca-foto .mediateca-ricerca-foto-foto-img {
+    width: 100%;
+  }
+
+  .mediateca-ricerca-video ul.mediateca-lista,
+  .mediateca-ricerca-foto ul.mediateca-lista {
+    list-style: none;
+    padding: 0;
+  }
+
+    .mediateca-ricerca-video ul.mediateca-lista > li,
+    .mediateca-ricerca-foto ul.mediateca-lista > li {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+@media only screen and (min-width: 768px) {
+  .mediateca-ricerca-video .mediateca-ricerca-video-panel,
+  .mediateca-ricerca-foto .mediateca-ricerca-foto-panel {
+    margin-bottom: 0;
+  }
+}
+
+.mediateca-ricerca-foto-paginazione {
+  margin-top: 0;
+  border: 0;
+}
+
+.mediateca-ricerca-video-paginazione {
+  margin-top: 0;
+  border: 0;
+}
+
+/***************************************************/
+
+
+/* Galleria foto ******************************/
+
+.galleria-foto-header {
+  padding-top: 3px;
+  padding-bottom: 0;
+  padding-right: 10px;
+}
+
+.galleria-foto-body {
+  background-color: #0b3857;
+}
+
+  .galleria-foto-body img {
+    padding: 7px;
+    background-color: #ffffff;
+    border-radius: 5px;
+  }
+
+  .galleria-foto-body .galleria-foto-didascalia {
+    text-align: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    color: #ffffff;
+  }
+
+  .galleria-foto-body .galleria-foto-download {
+    text-align: right;
+    margin-right: 10px;
+    font-size: 12px;
+    color: #ffffff;
+    margin-bottom: 0;
+  }
+
+    .galleria-foto-body .galleria-foto-download a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+  .galleria-foto-body p.galleria-foto-controlli-sx {
+    float: left;
+  }
+
+  .galleria-foto-body p.galleria-foto-controlli-dx {
+    float: right;
+  }
+
+  .galleria-foto-body p.galleria-foto-controlli-sx,
+  .galleria-foto-body p.galleria-foto-controlli-dx {
+    color: #ffffff;
+    text-align: right;
+    margin-right: 12px;
+  }
+
+    .galleria-foto-body p.galleria-foto-controlli-sx a,
+    .galleria-foto-body p.galleria-foto-controlli-dx a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+a.bsp-controls.previous {
+  padding-right: 10px;
+}
+
+.galleria-foto-header .galleria-foto-close {
+  color: #0b3857;
+  opacity: 1;
+}
+
+  .galleria-foto-header .galleria-foto-close:hover {
+    opacity: 0.5;
+  }
+
+/***************************************************/
+
+
+/* Banner cookies  ******************************/
+
+.banner-cookies {
+  padding: 15px;
+  background-color: #222222;
+  color: #ffffff;
+  z-index: 10000;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+  .banner-cookies .banner-msg {
+    width: 85%;
+    float: left;
+  }
+
+    .banner-cookies .banner-msg a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+  .banner-cookies .banner-close {
+    text-align: center;
+    width: 15%;
+    float: left;
+  }
+
+/***************************************************/
+
+
+/* Attività commissioni ******************************/
+
+.attivita-commissioni-calendario-contenitore {
+  margin-top: 20px;
+}
+
+.attivita-commissioni-calendario-titolo {
+  text-align: center;
+}
+
+.attivita-commissioni-calendario-tabella tr th {
+  text-align: center;
+  width: 14.28%;
+}
+
+.attivita-commissioni-calendario-cella {
+  margin-bottom: 30px;
+}
+
+/***************************************************/
+
+
+/* Forum ******************************/
+
+.forum_elenco_risposte {
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+/***************************************************/
+
+
+/* Repertorio leggi ******************************/
+
+ul.lista_repertorio_leggi_liv_1 {
+  list-style: none;
+  padding: 0;
+}
+
+  ul.lista_repertorio_leggi_liv_1 > li {
+    margin-top: 20px;
+    margin-bottom: 7px;
+  }
+
+ul.lista_repertorio_leggi_liv_2 {
+  list-style: none;
+}
+
+  ul.lista_repertorio_leggi_liv_2 > li {
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+
+ul.repertorio-leggi-contenuto-lista > li {
+  list-style-type: disc;
+}
+
+/***************************************************/
+
+
+/* Donna dell'anno - Edizioni precedenti ******************************/
+
+.donna-dell-anno-ed-prec {
+  float: left;
+  width: 100px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 60px;
+}
+
+.donna-dell-anno-ed-prec-anno {
+  font-size: 12px;
+}
+
+.donna-dell-anno-ed-prec-nomi {
+  font-size: 12px;
+  height: 55px;
+  display: block;
+}
+
+.donna-dell-anno-ed-prec-nazionalita {
+  color: #595959;
+  font-size: 10px;
+  height: 30px;
+  display: block;
+}
+
+.donna-dell-anno-ed-prec-scheda {
+  font-size: 9px;
+  color: #ffffff;
+  background: #000000;
+  padding: 2px 5px;
+}
+
+  .donna-dell-anno-ed-prec-scheda > a {
+    color: #ffffff;
+  }
+
+/***************************************************/
+
+
+/* Varie ******************************/
+
+article a {
+  text-decoration: underline;
+}
+
+#banner-home-sezione-da,
+#banner-home-sezione-po,
+#banner-home-sezione-sd,
+#banner-home-sezione-at {
+  /*
+    max-width: 100%;
+    margin-bottom: 20px;
+    */
+}
+
+a[name] {
+  text-decoration: none;
+  color: #333333;
+}
+
+dd {
+  margin-top: 0;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+
+.img_left {
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  max-width: 70%;
+}
+
+.form-control::-moz-placeholder {
+  color: #767676;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #767676;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #767676;
+}
+
+.form-control::placeholder {
+  color: #767676;
+}
+
+ul.portesouvertes-ventanni li img {
+  border: 1px solid #588220;
+}
+
+ul.lista-alfabeto {
+  list-style: outside none none;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 7px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+  ul.lista-alfabeto > li {
+    display: inline-block;
+  }
+
+    ul.lista-alfabeto > li + li::before {
+      content: "\00a0\007c\00a0\00a0"; /* spazio + pipe + spazio + spazio*/
+    }
+
+table.table.rendiconti-gruppi-verifiche {
+  margin-bottom: 50px;
+}
+
+  table.table.rendiconti-gruppi-verifiche caption {
+    text-align: center;
+    font-weight: bold;
+    color: #555555;
+  }
+
+  table.table.rendiconti-gruppi-verifiche tr td:last-child {
+    width: 10%;
+  }
+
+a.curriculum-legislatura-dettaglio {
+  color: #0b3857;
+  text-decoration: underline;
+}
+
+/***************************************************/
+
+
+/* Stampe ******************************/
+
+@media print {
+
+  a[href]:after {
+    content: none;
+  }
+}
+
+/***************************************************/
+
+
+/* Anagrafe patrimoniale ******************************/
+
+.tabella-anagrafe-patrimoniale > caption {
+  font-weight: bold;
+  font-size: 140%;
+  color: #333333;
+}
+
+/***************************************************/
+
+

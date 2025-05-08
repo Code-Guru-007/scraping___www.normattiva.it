@@ -1,0 +1,35 @@
+/* Barra logo e menu *****************************************************/
+
+#consvda-menu-principale ul  li.menu-principale-attivo {	
+	background-color: #0b3857;
+}
+
+/***************************************************/
+
+
+/* Homepage di sezione ******************************/
+#homepage-di-sezione-2 ul#lista-homepage-sezione li a {	
+	color: #0b3857;
+}
+
+/***************************************************/
+
+
+/* Box Per i cittadini ******************************/
+
+#per-i-cittadini{
+	background-color: #0b3857;
+}
+
+/***************************************************/
+
+
+/* Lista link ******************************/
+
+#lista-link{
+	background-color: #ffffff;
+}
+
+/***************************************************/
+
+

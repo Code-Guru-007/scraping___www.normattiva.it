@@ -1,0 +1,2 @@
+jQuery(function() {		var cookiepolicy = jQuery.cookie('cookiepolicy');	if (!cookiepolicy)	{					jQuery('#b-cookies').show();	}		jQuery('#b-cookies-btn').click(function() {		jQuery.cookie('cookiepolicy', '1', { expires: 30, path: '/'});		jQuery('#b-cookies').hide();	});
+});
