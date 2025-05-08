@@ -43,13 +43,9 @@ def print_pdf(main_tag, year, title):
 def download_pdf_from_url(url):
     response = requests.get(url, stream=True, proxies=proxy, verify=False)
     response.raise_for_status()  # Raise an error for bad status codes
-
     filename = extract_filename_from_headers(response)
-
-    # Full path for the PDF file
     file_path = os.path.join(download_dir, f"{year}/{filename}")
 
-    # Save the PDF
     with open(file_path, 'wb') as f:
         for chunk in response.iter_content(chunk_size=8192):
             if chunk:  # filter out keep-alive new chunks
@@ -117,17 +113,32 @@ for year in range(1970, 2026):
         #     soup = BeautifulSoup(response.text, 'html.parser')
         #     pdf_url = soup.find('a', {'title': 'Scarica il documento corrente in formato PDF'})['href']
         #     download_pdf_from_url(f"http://raccoltanormativa.consiglio.regione.toscana.it/{pdf_url}")
-        if url.startswith("https://www.consiglio.regione.lazio.it"):
-            response = requests.get(url, proxies=proxy)
+        # if url.startswith("https://www.consiglio.regione.lazio.it"):
+        #     response = requests.get(url, proxies=proxy)
+        #     response.raise_for_status()  # Raise an exception for HTTP errors
+        #     soup = BeautifulSoup(response.text, 'html.parser')
+        #     main_tag = soup.find('div', {'id': 'contenuto_legge'})
+        #     page_title_div = soup.find('div', id='page-title')
+        #     title = page_title_div.find_all('a')[-1].get('title', 'No title attribute')
+            
+        #     if main_tag:
+        #         print_pdf(main_tag, year, title)
+        # if url.startswith("https://demetra.regione.emilia-romagna.it"):
+        #     print(url)
+        #     response = requests.get(url, proxies=proxy, verify=False)
+        #     response.raise_for_status()  # Raise an exception for HTTP errors
+        #     soup = BeautifulSoup(response.text, 'html.parser')
+        #     pdf_url = soup.find('a', {'title': 'Scarica il documento corrente in formato PDF3'})['href']
+        #     download_pdf_from_url(f"https://demetra.regione.emilia-romagna.it/al/{pdf_url}")
+        if url.startswith("https://www.consiglio.marche.it"):
+            response = requests.get(url, proxies=proxy, verify=False)
             response.raise_for_status()  # Raise an exception for HTTP errors
             soup = BeautifulSoup(response.text, 'html.parser')
-            main_tag = soup.find('div', {'id': 'contenuto_legge'})
-            page_title_div = soup.find('div', id='page-title')
-            title = page_title_div.find_all('a')[-1].get('title', 'No title attribute')
-            
-            if main_tag:
-                print_pdf(main_tag, year, title)
-
+            title_tag = soup.find('section', {'id': 'intro'})
+            content_tag = soup.find('div', {'id': 'atto'})
+            title = content_tag.find_all('td')[1].get_text('strip=True')
+            main_tag = f"{title_tag} {content_tag}"
+            print_pdf(main_tag, year, title)
 
 
 
