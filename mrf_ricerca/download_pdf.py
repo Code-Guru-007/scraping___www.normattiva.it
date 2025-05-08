@@ -130,15 +130,21 @@ for year in range(1970, 2026):
         #     soup = BeautifulSoup(response.text, 'html.parser')
         #     pdf_url = soup.find('a', {'title': 'Scarica il documento corrente in formato PDF3'})['href']
         #     download_pdf_from_url(f"https://demetra.regione.emilia-romagna.it/al/{pdf_url}")
-        if url.startswith("https://www.consiglio.marche.it"):
-            response = requests.get(url, proxies=proxy, verify=False)
-            response.raise_for_status()  # Raise an exception for HTTP errors
-            soup = BeautifulSoup(response.text, 'html.parser')
-            title_tag = soup.find('section', {'id': 'intro'})
-            content_tag = soup.find('div', {'id': 'atto'})
-            title = content_tag.find_all('td')[1].get_text('strip=True')
-            main_tag = f"{title_tag} {content_tag}"
-            print_pdf(main_tag, year, title)
+        # if url.startswith("https://www.consiglio.marche.it"):
+        #     response = requests.get(url, proxies=proxy, verify=False)
+        #     response.raise_for_status()  # Raise an exception for HTTP errors
+        #     soup = BeautifulSoup(response.text, 'html.parser')
+        #     title_tag = soup.find('section', {'id': 'intro'})
+        #     content_tag = soup.find('div', {'id': 'atto'})
+        #     title = content_tag.find_all('td')[1].get_text('strip=True')
+        #     main_tag = f"{title_tag} {content_tag}"
+        #     print_pdf(main_tag, year, title)
+        if url.startswith("https://normelombardia.consiglio.regione.lombardia.it"):
+            print(url)
+            parsed_url = urlparse(url)
+            query_params = parse_qs(parsed_url.query)
+            iddoc = query_params.get('iddoc', [None])[0]
+            download_pdf_from_url(f"https://normelombardia.consiglio.regione.lombardia.it/accessibile/esportaDoc.aspx?type=pdf&iddoc={iddoc}")
 
 
 
