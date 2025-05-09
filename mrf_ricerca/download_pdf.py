@@ -139,12 +139,28 @@ for year in range(1970, 2026):
         #     title = content_tag.find_all('td')[1].get_text('strip=True')
         #     main_tag = f"{title_tag} {content_tag}"
         #     print_pdf(main_tag, year, title)
-        if url.startswith("https://normelombardia.consiglio.regione.lombardia.it"):
-            print(url)
-            parsed_url = urlparse(url)
-            query_params = parse_qs(parsed_url.query)
-            iddoc = query_params.get('iddoc', [None])[0]
-            download_pdf_from_url(f"https://normelombardia.consiglio.regione.lombardia.it/accessibile/esportaDoc.aspx?type=pdf&iddoc={iddoc}")
+        # if url.startswith("https://normelombardia.consiglio.regione.lombardia.it"):
+        #     print(url)
+        #     parsed_url = urlparse(url)
+        #     query_params = parse_qs(parsed_url.query)
+        #     iddoc = query_params.get('iddoc', [None])[0]
+        #     download_pdf_from_url(f"https://normelombardia.consiglio.regione.lombardia.it/accessibile/esportaDoc.aspx?type=pdf&iddoc={iddoc}")
+        # if url.startswith("http://bussolanormativa.consiglio.puglia.it"):
+        #     print(url)
+        #     response = requests.get(url, proxies=proxy, verify=False)
+        #     response.raise_for_status()  # Raise an exception for HTTP errors
+        #     soup = BeautifulSoup(response.text, 'lxml')
+        #     main_tag = soup.find('tbody')
+        #     title = main_tag.find('span', {'id': 'ContentPlaceHolder1_lblTesto'}).find('div', {'class':'corpo'}).find_all('p')[0].get_text('strip=True')
+        #     print_pdf(main_tag, year, title)
+        # if url.startswith("http://atticonsiglio.consiglio.basilicata.it"):
+        #     print(url)
+        #     response = requests.get(url, proxies=proxy, verify=False)
+        #     response.raise_for_status()  # Raise an exception for HTTP errors
+        #     soup = BeautifulSoup(response.text, 'lxml')
+        #     main_tag = soup.find('div', {'class': 'WordSection1'})
+        #     title = main_tag.find('p', {'class':'Legge'}).get_text('strip=True')
+        #     print_pdf(main_tag, year, title)
 
 
 
